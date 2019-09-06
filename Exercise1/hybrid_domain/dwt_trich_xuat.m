@@ -50,7 +50,7 @@ try
     % Thuc thi trich xuat du lieu
     fprintf('Thuc thi trich xuat du lieu\n');
     messageA = (wA - oA) / 0.03;
-    figure(f), subplot(2,2,3), imshow(uint8(messageA)), title('Asset Approximation');
+    figure(f), subplot(2,2,3), imshow(uint8(messageA)), title('Message Approximation');
     fprintf('Ket thuc thi trich xuat du lieu\n');
 
     % Luu lai anh Asset 

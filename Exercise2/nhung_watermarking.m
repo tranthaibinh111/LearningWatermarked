@@ -36,7 +36,7 @@ try
     % Doc anh nhung
     fprintf('Doc message image\n');
     message = imread([pthMessage, fMessage]);
-    figure(f), subplot(2, 2, 2), imshow(origin), title('Message');
+    figure(f), subplot(2, 2, 2), imshow(message), title('Message');
     fprintf('Ket thuc doc message image\n');
 
     % EmbedWatermark

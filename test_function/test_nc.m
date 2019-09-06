@@ -19,34 +19,34 @@ try
     figure(f), subplot(1, 3, 1), imshow(orig), title('Origin Gray');
     fprintf('Ket thuc doc origin image\n');
     
-    [fWM, pthWM] = doc_hinh('Chon anh watermarking');   
-    if (isequal(fWM, 0) && ...
-        isequal(pthWM, 0))
-        fprintf('Hinh nhu ban khong chon watermarked\n');
+    [fM, pthM] = doc_hinh('Chon anh trich xuat');   
+    if (isequal(fM, 0) && ...
+        isequal(pthM, 0))
+        fprintf('Hinh nhu ban khong chon anh trich xuat\n');
         return;
     end    
 
-    fprintf('Doc watermarking image\n');
-    wm = imread([pthWM, fWM]);
-    figure(f), subplot(1, 3, 2), imshow(wm), title('Watermarking');
-    fprintf('Ket thuc doc watermarking image\n');
+    fprintf('Doc anh trich xuat\n');
+    message = imread([pthM, fM]);
+    figure(f), subplot(1, 3, 2), imshow(message), title('Anh trich xuat');
+    fprintf('Ket thuc doc anh trich xuat\n');
 
-    fprintf('Tinh normalise correlation cho watermarking\n');
+    fprintf('Tinh normalise correlation cho anh trich xuat\n');
     [m, n] = size(orig);
-    nu = 0;
-    de = 0;
+    nu = double(0);
+    de = double(0);
     
     for i = 1:m
         for j = 1:n
-            nu = nu + (orig(i,j) * wm(i,j));
-            de = de + orig(i,j) * orig(i,j);
+            nu = nu + double(orig(i,j)) * double(message(i,j));
+            de = de + double(orig(i,j)) * double(orig(i,j));
         end
     end   
 
-    nc = nu / de;
+    nc = (nu / de) * 100;
     result = sprintf('%0.2f%c', nc, '%');
     psnr_img = insertText( ...
-        wm, ...
+        message, ...
         [int32(m*0.125) int32(n*0.125)], ...
         result, ...
         'FontSize', 10, ...
@@ -58,7 +58,7 @@ try
     subplot(1, 3, 3)
     imshow(psnr_img)
     title('Ket qua tinh normalise correlation');
-    fprintf('Ket thuc tinh normalise correlation cho watermarking\n');
+    fprintf('Ket thuc tinh normalise correlation cho anh trich xuat\n');
 
     fprintf('Luu ke qua thuc thi\n');
     viet_hinh('Luu normalise correlation', psnr_img);

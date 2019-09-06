@@ -48,10 +48,10 @@ try
 
     % Vat nhung
     [wA, wH, wV, wD] = dwt2(message, 'bior1.1');
-    figure(f2), subplot(2,2,1), imshow(abs(wA),[]), title('Asset Approximation');
-    figure(f2), subplot(2,2,2), imshow(abs(wH),[0 60]), title('Asset Horizontal');
-    figure(f2), subplot(2,2,3), imshow(abs(wV),[0 60]), title('Asset Vertical');
-    figure(f2), subplot(2,2,4), imshow(abs(wD),[0 60]), title('Asset Diagonal');
+    figure(f2), subplot(2,2,1), imshow(abs(wA),[]), title('Message Approximation');
+    figure(f2), subplot(2,2,2), imshow(abs(wH),[0 60]), title('Message Horizontal');
+    figure(f2), subplot(2,2,3), imshow(abs(wV),[0 60]), title('Message Vertical');
+    figure(f2), subplot(2,2,4), imshow(abs(wD),[0 60]), title('Message Diagonal');
 
     fprintf('Ket thuc thi dwt2\n');
 
