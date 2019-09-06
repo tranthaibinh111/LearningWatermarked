@@ -1,24 +1,24 @@
 clc;
 clear;
 
-% Chat luong anh 95%
+% Chat luong anh 85%
 quality = 95;
 
 try
     % Add path common function
     addpath('../common_function'); 
     
-    [fWM, pthWM] = doc_hinh('Chon anh watermarking');
+    [fWM, pthWM] = doc_hinh('Chon anh');
     if (isequal(fWM, 0) && ...
         isequal(pthWM, 0))
-        fprintf('Hinh nhu ban khong chon watermarked\n');
+        fprintf('Hinh nhu ban khong chon anh\n');
         return;
     end
     
-    fprintf('Doc watermarking image\n');
+    fprintf('Doc image\n');
     wm = imread([pthWM, fWM]);
-    subplot(1, 2, 1), imshow(wm), title('Watermarking');
-    fprintf('Ket thuc doc watermarking image\n');
+    subplot(1, 2, 1), imshow(wm), title('Hinh anh');
+    fprintf('Ket thuc doc image\n');
 
     fprintf("Thuc nghiem tan cong bang cach nen anh\n");      
     header = sprintf('Luu anh nen chat luong %d%c', quality, '%');
@@ -37,6 +37,6 @@ try
         fprintf("Ket thuc xem ket qua tan cong bang cach nen anh\n");
     end
 catch ME
-    fprintf("Error trong qua trinh kiem tra peak signal-to-noise ratio\n");
+    fprintf("Error trong qua trinh tan cong chat luong anh\n");
     rethrow(ME);
 end
